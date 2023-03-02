@@ -34,7 +34,8 @@ const run = async () => {
             console.log(`Regex: ${regExp.toString()}`)
             core.setOutput("hasChanges", false)
         } else {
-            core.setOutput("hasChanges", filteredFiles.split(","))
+            core.setOutput("hasChanges", true)
+            console.log(`Found a total of ${filteredFiles} matches`)
             console.log(`Found a total of ${filteredFiles.length} matches`)
         }
 
