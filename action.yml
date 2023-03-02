@@ -1,7 +1,4 @@
 name: "directory-changes-checker"
-branding: 
-  icon: 'search'
-  color: 'blue'
 
 description: "Finds out if a given directory is present in the changed files list of a repositorie's last commit"
 
@@ -13,4 +10,4 @@ inputs:
 
 runs:
   using: "node12"
-  main: "main.js"
+  main: "index.js"
