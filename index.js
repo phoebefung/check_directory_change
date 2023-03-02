@@ -22,8 +22,13 @@ const run = async () => {
             head: "HEAD"
         })
 
+        const set = new Set()
         let filteredFiles = (response.data.files || []).filter(file => {
             let isMatch = regExp.test(file.filename)
+            if(isMatch){
+                const index = file.filename.indexOf("/")
+                set.add(file.filename.substring(0,index))
+            }
             console.log(`[${isMatch && '[** match **]'} ${file.filename}`)
             return isMatch
         })
@@ -35,8 +40,8 @@ const run = async () => {
             core.setOutput("hasChanges", false)
         } else {
             core.setOutput("hasChanges", true)
-            const data = filteredFiles.map(item=>item.filename)
-            console.log(`Found a total of ${data[0]} matches`)
+            const array = [...set];
+            console.log(`Found a total of ${array.join(",")} matches`)
             console.log(`Found a total of ${filteredFiles.length} matches`)
         }
 
