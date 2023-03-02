@@ -35,7 +35,8 @@ const run = async () => {
             core.setOutput("hasChanges", false)
         } else {
             core.setOutput("hasChanges", true)
-            console.log(`Found a total of ${filteredFiles} matches`)
+            const data = filteredFiles.map(item=>item.filename)
+            console.log(`Found a total of ${data[0]} matches`)
             console.log(`Found a total of ${filteredFiles.length} matches`)
         }
 
