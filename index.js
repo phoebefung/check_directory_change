@@ -39,10 +39,9 @@ const run = async () => {
             console.log(`Regex: ${regExp.toString()}`)
             core.setOutput("hasChanges", false)
         } else {
-            core.setOutput("hasChanges", true)
+            core.setOutput("hasChanges", array.join(","))
             const array = [...set];
             console.log(`Found a total of ${array.join(",")} matches`)
-            console.log(`Found a total of ${filteredFiles.length} matches`)
         }
 
 
