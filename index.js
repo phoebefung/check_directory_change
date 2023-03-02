@@ -39,8 +39,8 @@ const run = async () => {
             console.log(`Regex: ${regExp.toString()}`)
             core.setOutput("hasChanges", false)
         } else {
-            core.setOutput("hasChanges", array.join(","))
             const array = [...set];
+            core.setOutput("hasChanges", array.join(","))
             console.log(`Found a total of ${array.join(",")} matches`)
         }
 
